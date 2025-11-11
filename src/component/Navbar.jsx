@@ -1,11 +1,25 @@
 import React, { use } from 'react';
 import { FiLogOut } from 'react-icons/fi';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
 
-    const { user } = use(AuthContext);
+    const { user, signOutUser } = use(AuthContext);
+    const navigate = useNavigate();
+
+    const handleSignOutUser = () => {
+        signOutUser()
+        .then(()=>{
+            toast.success('Sign Out Success')
+            navigate('/')
+        })
+        .catch((error)=> {
+            console.log(error);
+            toast.error('Somthing is wrong')
+        })
+    }
 
     const navLinks = <>
         <NavLink to='/' className='font-semibold p-3 text-[17px]' ><li> Home </li></NavLink>
@@ -52,7 +66,7 @@ const Navbar = () => {
                                     <div className="w-10 rounded-full">
                                         <img
                                             alt="Tailwind CSS Navbar component"
-                                            src='https://scontent.fdac177-1.fna.fbcdn.net/v/t39.30808-1/431791220_2140807236256918_636841911573142717_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=106&ccb=1-7&_nc_sid=1d2534&_nc_ohc=NG_0Y8bVxVsQ7kNvwGn96ET&_nc_oc=AdnxQlz_cW5a8nIvQtUxpXIEEGx6Yk4eIe-ioORYujW-8IAtKmiKSqHFcQkGq-pqTZ0&_nc_zt=24&_nc_ht=scontent.fdac177-1.fna&_nc_gid=mDaDwwzobZYUPuvpJvK7Uw&oh=00_AfjCGL53ZBc9luNhIk6T03sYjpaQPnPyivQoMZk9XSiHHg&oe=6917EAF7' />
+                                            src={user?.photoURL} />
                                     </div>
                                 </div>
 
@@ -60,10 +74,10 @@ const Navbar = () => {
 
                                     <div className='space-y-2 text-[16px] px-3'>
 
-                                        <p>Name</p>
-                                        <p>email</p>
+                                        <p>{user?.displayName}</p>
+                                        <p>{user?.email}</p>
 
-                                        <p className='cursor-pointer flex items-center gap-2'><FiLogOut />Logout</p>
+                                        <p onClick={handleSignOutUser} className='cursor-pointer flex items-center gap-2'><FiLogOut />Logout</p>
                                     </div>
 
                                     {/* <button onClick={logOutUser} className="rounded-2xl font-semibold border-0 text-md">Logout</button> */}
