@@ -5,6 +5,8 @@ import NotFound from "../Pages/NotFound";
 import AddHabit from "../Pages/AddHabit";
 import MyHabits from "../Pages/MyHabits";
 import BrowsePublicHabits from "../Pages/BrowsePublicHabits";
+import LoginPage from "../Pages/LoginPage";
+import RegisterPage from "../Pages/RegisterPage";
 
 
 const router = createBrowserRouter([
@@ -31,6 +33,14 @@ const router = createBrowserRouter([
                 path: '/browse-public-habits',
                 element: <BrowsePublicHabits></BrowsePublicHabits>
             },
+            {
+                path: '/login',
+                element: <LoginPage></LoginPage>
+            },
+            {
+                path: '/register',
+                element: <RegisterPage></RegisterPage>
+            }
         ]
     }
 ])

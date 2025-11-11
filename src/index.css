@@ -10,6 +10,9 @@
     color: white !important;
 }
 
+/* a.active{
+    @apply text-[#7b3aec] 
+} */
 a.active{
-    @apply text-[#7b3aec]   
+    @apply font-bold
 }
