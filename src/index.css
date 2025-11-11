@@ -9,3 +9,7 @@
 .swiper-button-next {
     color: white !important;
 }
+
+a.active{
+    @apply text-[#7b3aec]   
+}
