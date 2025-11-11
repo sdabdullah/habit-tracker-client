@@ -7,9 +7,9 @@ const Navbar = () => {
         <NavLink to='/' className='font-semibold p-3 text-[16px]' ><li> Home </li></NavLink>
 
         {/* This is the Additional Routes */}
-        <NavLink to='/add-habit' className='font-semibold p-3 text-[16px]'><li>Add Habit</li></NavLink>
-        <NavLink to='/my-habit' className='font-semibold p-3 text-[16px]'><li>My Habits</li></NavLink>
-        <NavLink to='/browse-public-habits' className='font-semibold p-3 text-[16px]'><li>Browse Public Habits</li></NavLink>
+        <NavLink to='/add-habit' className='p-3 text-[18px]'><li>Add Habit</li></NavLink>
+        <NavLink to='/my-habit' className='p-3 text-[18px]'><li>My Habits</li></NavLink>
+        <NavLink to='/browse-public-habits' className='p-3 text-[18px]'><li>Browse Public Habits</li></NavLink>
     </>
     return (
         <div className='container mx-auto'>
@@ -26,7 +26,14 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <Link to='/' className='className="flex items-center gap-3 btn-neutral text-xl"'>Habit Tracker</Link>
+                    <Link to='/'>
+                        <div className="flex items-center space-x-2">
+                            <div className="w-10 h-10 bg-linear-to-br from-violet-600 to-indigo-600 rounded-lg flex items-center justify-center">
+                                <span className="text-white font-bold text-xl">H</span>
+                            </div>
+                            <span className="text-2xl font-bold">Habit Tracker</span>
+                        </div>
+                    </Link>
 
                 </div>
                 <div className="navbar-end hidden lg:flex">
@@ -49,10 +56,10 @@ const Navbar = () => {
 
                             <div className='space-y-2 text-[16px] px-3'>
 
-                            <p>Name</p>
-                            <p>email</p>
-                                
-                            <p className='cursor-pointer flex items-center gap-2'><FiLogOut />Logout</p>
+                                <p>Name</p>
+                                <p>email</p>
+
+                                <p className='cursor-pointer flex items-center gap-2'><FiLogOut />Logout</p>
                             </div>
 
                             {/* <button onClick={logOutUser} className="rounded-2xl font-semibold border-0 text-md">Logout</button> */}

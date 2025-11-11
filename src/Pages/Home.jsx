@@ -8,6 +8,7 @@ import 'swiper/css/navigation';
 import { Typewriter } from 'react-simple-typewriter';
 import { Link } from 'react-router';
 import HabitCard from '../component/HabitCard';
+import WhyBuildCard from '../component/WhyBuildCard';
 
 const Home = () => {
     return (
@@ -121,20 +122,38 @@ const Home = () => {
 
             {/* Featured Habits Section */}
 
-            <div className='py-20 container mx-auto bg-white space-y-15'>
-                <div className='text-center'>
-                    <h2 className='text-4xl md:text-5xl font-bold'>Featured Habits</h2>
-                    <p className='text-xl text-slate-600'>Discover the newest habits from our community</p>
+            <div className='py-20 bg-white'>
+                <div className='w-11/12 mx-auto space-y-15'>
+                    <div className='text-center space-y-4'>
+                        <h2 className='text-4xl md:text-5xl font-bold'>Featured Habits</h2>
+                        <p className='text-xl text-slate-600'>Discover the newest habits from our community</p>
+                    </div>
+                    
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4'>
+                        <HabitCard></HabitCard>
+                        <HabitCard></HabitCard>
+                        <HabitCard></HabitCard>
+                    </div>
                 </div>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-                    <HabitCard></HabitCard>
-                    <HabitCard></HabitCard>
-                    <HabitCard></HabitCard>
-                </div>
+
+
             </div>
 
 
-            
+            <div className='py-20  bg-[#f3f3ff]'>
+                <div className='w-11/12 mx-auto space-y-15'>
+                    <div className='text-center space-y-4'>
+                        <h2 className='text-4xl md:text-5xl font-bold'>Why Build Habits?</h2>
+                        <p className='text-xl text-slate-600'>Discover the transformative power of consistent daily practices</p>
+                    </div>
+
+                    <div className=''>
+                        <WhyBuildCard></WhyBuildCard>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     );
 };
