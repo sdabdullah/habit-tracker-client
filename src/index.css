@@ -1,2 +1,11 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+.swiper-button-prev {
+    color: #fff !important;
+}
+
+.swiper-button-next {
+    color: white !important;
+}
