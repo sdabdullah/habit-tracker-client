@@ -28,7 +28,7 @@ const RegisterPage = () => {
         if (!checkPasswordValidation.test(password)) {
             setPasswordValidation('Please enter at least 6 characters and include at least one uppercase & lowercase letter.');
             return;
-        }else{
+        } else {
             setPasswordValidation('');
         }
 
@@ -39,7 +39,7 @@ const RegisterPage = () => {
                 updateUser({ displayName: name, photoURL: photoURL })
                     .then(() => {
                         setUser({ ...user, displayName: name, photoURL: photoURL })
-                        navigate('/my-habit')
+                        navigate('/browse-public-habits')
                         toast.success('Regitration Success')
                     })
                     .catch((error) => {

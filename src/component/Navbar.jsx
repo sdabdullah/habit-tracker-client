@@ -27,6 +27,7 @@ const Navbar = () => {
         <NavLink to='/my-habit' className='p-3 text-[17px] font-semibold'><li>My Habits</li></NavLink>
         <NavLink to='/browse-public-habits' className='p-3 text-[17px] font-semibold'><li>Browse Public Habits</li></NavLink>
     </>
+    
     return (
         <div className='container mx-auto'>
             <div className="navbar justify-between">

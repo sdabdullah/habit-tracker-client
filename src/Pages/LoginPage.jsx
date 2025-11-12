@@ -1,11 +1,15 @@
 import React, { use, useState } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { IoEyeOff } from 'react-icons/io5';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
+import { toast } from 'react-toastify';
 
 const LoginPage = () => {
-    const { signInWithGoogle } = use(AuthContext);
+    const { signInWithGoogle, signInUser } = use(AuthContext);
+    const [showPassIcon, setShowPassIcon] = useState();
+    const navigate = useNavigate();
+    // const location = useLocation();
 
     const handleSignInWithGoogle = () => {
         signInWithGoogle()
@@ -17,7 +21,31 @@ const LoginPage = () => {
             })
     }
 
-    const [showPassIcon, setShowPassIcon] = useState();
+    const handleSignInUser = (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log({ email, password });
+
+        signInUser(email, password)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                toast.success('Login Success')
+                navigate('/my-habit')
+                // Navigate(`${location.state ? location.state : '/'}`)
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+                toast.error('Something is wrong in', errorCode, errorMessage)
+            });
+    }
+
     return (
         <div className='bg-[#f6f9fb]'>
             <div className='flex justify-center items-center px-10 py-15'>
@@ -29,7 +57,7 @@ const LoginPage = () => {
                     <p className='text-center text-gray-500 mt-2'>Login to continue your habit journey</p>
 
                     <div className="card-body">
-                        <form>
+                        <form onSubmit={handleSignInUser}>
                             <fieldset className="fieldset">
 
                                 <div>
@@ -59,7 +87,7 @@ const LoginPage = () => {
                         </form>
 
                         <button
-                        
+
                             onClick={handleSignInWithGoogle}
 
                             className="btn rounded bg-white border-gray-300">

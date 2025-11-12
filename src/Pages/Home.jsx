@@ -25,9 +25,8 @@ const Home = () => {
                 >
                     <SwiperSlide>
                         <div className="relative h-full bg-linear-to-r from-violet-600 to-indigo-600">
-                            <img
-                                className="absolute inset-0 w-full h-full object-cover opacity-20"
-                                src="https://images.unsplash.com/photo-1606663485553-432d79af0620" />
+                            {/* <img className="absolute inset-0 w-full h-full object-cover opacity-20"
+                                src="" /> */}
 
                             <div className="relative h-full flex items-center justify-center text-center px-4">
                                 <motion.div
@@ -64,9 +63,8 @@ const Home = () => {
 
                     <SwiperSlide>
                         <div className="relative h-full  bg-linear-to-r from-indigo-600 to-blue-600">
-                            <img
-                                className="absolute inset-0 w-full h-full object-cover opacity-20"
-                                src="https://images.unsplash.com/photo-1594911531568-b3d4e7ec7a87" />
+                            {/* <img className="absolute inset-0 w-full h-full object-cover opacity-20"
+                                src="" /> */}
 
                             <div className="relative h-full flex items-center justify-center text-center px-4">
                                 <motion.div
@@ -80,7 +78,7 @@ const Home = () => {
                                     <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
                                         Visualize your streaks and celebrate every milestone
                                     </p>
-                                    <Link to="/browse-habits">
+                                    <Link to="/browse-public-habits">
                                         <button className="bg-white text-indigo-600 hover:bg-slate-100 rounded-lg px-4 py-2">
                                             Explore Habits
                                         </button>
@@ -92,9 +90,8 @@ const Home = () => {
 
                     <SwiperSlide>
                         <div className="relative h-full bg-linear-to-r from-blue-600 to-cyan-600">
-                            <img
-                                className="absolute inset-0 w-full h-full object-cover opacity-20"
-                                src="https://images.unsplash.com/photo-1636961758654-01550d9ef9a1" />
+                            {/* <img className="absolute inset-0 w-full h-full object-cover opacity-20"
+                                src="" /> */}
 
                             <div className="relative h-full flex items-center justify-center text-center px-4">
                                 <motion.div
