@@ -1,9 +1,12 @@
 import React from 'react';
 import Navbar from '../component/Navbar';
-import { Outlet } from 'react-router';
+import { Outlet, useNavigation } from 'react-router';
 import Footer from '../component/Footer';
+import PageLoader from '../Pages/PageLoader';
 
 const RootLayout = () => {
+    // const { state } = useNavigation();
+    const navigation = useNavigation()
     return (
         <div>
             <section>
@@ -14,7 +17,10 @@ const RootLayout = () => {
 
             <section>
                 <main>
-                    <Outlet></Outlet>
+                    {
+                        navigation.state === 'loading' ? (<PageLoader></PageLoader>) :
+                            <Outlet></Outlet>
+                    }
                 </main>
             </section>
 
