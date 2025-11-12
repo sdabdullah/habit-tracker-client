@@ -1,7 +1,7 @@
 import React, { use, useState } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { IoEyeOff } from 'react-icons/io5';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 import { toast } from 'react-toastify';
 
@@ -9,7 +9,7 @@ const LoginPage = () => {
     const { signInWithGoogle, signInUser } = use(AuthContext);
     const [showPassIcon, setShowPassIcon] = useState();
     const navigate = useNavigate();
-    // const location = useLocation();
+    const location = useLocation();
 
     const handleSignInWithGoogle = () => {
         signInWithGoogle()
@@ -35,8 +35,7 @@ const LoginPage = () => {
                 const user = result.user;
                 console.log(user);
                 toast.success('Login Success')
-                navigate('/my-habit')
-                // Navigate(`${location.state ? location.state : '/'}`)
+                navigate(`${location.state ? location.state : '/'}`)
             })
             .catch((error) => {
                 const errorCode = error.code;

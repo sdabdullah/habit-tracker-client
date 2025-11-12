@@ -11,14 +11,14 @@ const Navbar = () => {
 
     const handleSignOutUser = () => {
         signOutUser()
-        .then(()=>{
-            toast.success('Sign Out Success')
-            navigate('/')
-        })
-        .catch((error)=> {
-            console.log(error);
-            toast.error('Somthing is wrong')
-        })
+            .then(() => {
+                toast.success('Sign Out Success')
+                navigate('/')
+            })
+            .catch((error) => {
+                console.log(error);
+                toast.error('Somthing is wrong')
+            })
     }
 
     const navLinks = <>
@@ -27,7 +27,7 @@ const Navbar = () => {
         <NavLink to='/my-habit' className='p-3 text-[17px] font-semibold'><li>My Habits</li></NavLink>
         <NavLink to='/browse-public-habits' className='p-3 text-[17px] font-semibold'><li>Browse Public Habits</li></NavLink>
     </>
-    
+
     return (
         <div className='container mx-auto'>
             <div className="navbar justify-between">
@@ -39,7 +39,6 @@ const Navbar = () => {
                         <ul
                             tabIndex={0} className="menu menu-sm dropdown-content bg-[#ffffff] border border-[#7b3aec] rounded-box z-10 mt-3 w-52 p-2 shadow">
                             {navLinks}
-
                         </ul>
                     </div>
 
@@ -91,7 +90,7 @@ const Navbar = () => {
                         <div className='flex items-center space-x-2'>
                             <NavLink to='/login' className='btn border-2 bg-white rounded-md font-semibold text-[16px]'>Login</NavLink>
 
-                            <NavLink to='/register' className="bg-[#7b3aec] btn border-gray-300 text-white rounded-md  ">Signup</NavLink>
+                            <NavLink to='/register' className="bg-[#7b3aec] btn border-gray-300 text-white rounded-md ">Signup</NavLink>
                         </div>
                 }
 

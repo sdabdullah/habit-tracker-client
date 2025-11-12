@@ -107,7 +107,7 @@ const RegisterPage = () => {
                                     passwordValidation && <p className='text-red-600 text-sm'>{passwordValidation}</p>
                                 }
 
-                                <button type="submit" className="btn text-white border-none rounded-lg mt-4 bg-[#7b3aec] border-0 text-lg">Login</button>
+                                <button type="submit" className="btn text-white border-none rounded-lg mt-4 bg-[#7b3aec] border-0 text-lg">Signup</button>
 
                                 <div className="flex justify-center items-center text-center gap-2 mt-2 text-sm">
                                     <div className='h-px w-30 bg-gray-500'></div>

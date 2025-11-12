@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const HabitCard = () => {
     return (
@@ -12,7 +13,9 @@ const HabitCard = () => {
 
                 <div className='flex justify-between'>
                     <p className='text-sm text-slate-500'>Creator Name</p>
-                    <button className="bg-[#7b3aec] text-white rounded-md px-3 py-1">View Details</button>
+                    <Link to='/habit-details'>
+                        <button className="bg-[#7b3aec] text-white rounded-md px-3 py-1">View Details</button>
+                    </Link>
                 </div>
             </div>
         </div>

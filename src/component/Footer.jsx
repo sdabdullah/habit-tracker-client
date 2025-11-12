@@ -9,7 +9,7 @@ import { Link } from 'react-router';
 const Footer = () => {
     return (
         <div>
-            <footer className="bg-slate-900 text-white mt-20">
+            <footer className="bg-slate-900 text-white">
                 <div className="max-w-11/12 mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div className="space-y-4">
@@ -90,10 +90,10 @@ const Footer = () => {
                             © 2025 Habi Tracker. All rights reserved.
                         </p>
                         <div className="flex space-x-6 mt-4 md:mt-0">
-                            <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">
+                            <a href="#" className="text-slate-400 text-sm transition-colors">
                                 Terms & Conditions
                             </a>
-                            <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">
+                            <a href="#" className="text-slate-400 text-sm transition-colors">
                                 Privacy Policy
                             </a>
                         </div>

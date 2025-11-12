@@ -1,8 +1,8 @@
 import React, { use, useState } from 'react';
-import { Link } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 
-const AddHabit = () => {
+const UpdateHabit = () => {
+
     const { user } = use(AuthContext);
 
     const [title, setTitle] = useState('');
@@ -20,8 +20,8 @@ const AddHabit = () => {
                     <div className="card-body">
 
                         <div>
-                            <h2 className='font-bold text-3xl'>Create New Habit</h2>
-                            <p className='text-[16px] text-gray-500 my-2'>Start building a better you, one habit at a time</p>
+                            <h2 className='font-bold text-3xl'>Update Habit</h2>
+                            <p className='text-[16px] text-gray-500 my-2'>Make changes to your habit</p>
                         </div>
 
                         <form>
@@ -81,4 +81,4 @@ const AddHabit = () => {
     );
 };
 
-export default AddHabit;
+export default UpdateHabit;

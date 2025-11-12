@@ -7,6 +7,10 @@ import MyHabits from "../Pages/MyHabits";
 import BrowsePublicHabits from "../Pages/BrowsePublicHabits";
 import LoginPage from "../Pages/LoginPage";
 import RegisterPage from "../Pages/RegisterPage";
+import PrivateRouter from "./PrivateRouter";
+import HabitDetails from "../Pages/HabitDetails";
+import UpdateHabit from "../Pages/UpdateHabit";
+// import PageLoader from "../Pages/PageLoader";
 
 
 const router = createBrowserRouter([
@@ -15,7 +19,7 @@ const router = createBrowserRouter([
         element: <RootLayout></RootLayout>,
         errorElement: <NotFound></NotFound>,
 
-        hydrateFallbackElement: <p>Loading...</p>,
+        // hydrateFallbackElement: <PageLoader></PageLoader>,
 
         children: [
             {
@@ -25,15 +29,31 @@ const router = createBrowserRouter([
             },
             {
                 path: '/add-habit',
-                element: <AddHabit></AddHabit>
+                element: <PrivateRouter>
+                    <AddHabit></AddHabit>
+                </PrivateRouter>
             },
             {
                 path: '/my-habit',
-                element: <MyHabits></MyHabits>
+                element: <PrivateRouter>
+                    <MyHabits></MyHabits>
+                </PrivateRouter>
+            },
+            {
+                path: '/update-habit',
+                element: <PrivateRouter>
+                    <UpdateHabit></UpdateHabit>
+                </PrivateRouter>
             },
             {
                 path: '/browse-public-habits',
                 element: <BrowsePublicHabits></BrowsePublicHabits>
+            },
+            {
+                path: '/habit-details',
+                element: <PrivateRouter>
+                    <HabitDetails></HabitDetails>
+                </PrivateRouter>
             },
             {
                 path: '/login',

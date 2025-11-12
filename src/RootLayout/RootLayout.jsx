@@ -6,7 +6,7 @@ import PageLoader from '../Pages/PageLoader';
 
 const RootLayout = () => {
     // const { state } = useNavigation();
-    const navigation = useNavigation()
+    const { state } = useNavigation()
     return (
         <div>
             <section>
@@ -18,8 +18,7 @@ const RootLayout = () => {
             <section>
                 <main>
                     {
-                        navigation.state === 'loading' ? (<PageLoader></PageLoader>) :
-                            <Outlet></Outlet>
+                        state === 'loading' ? <PageLoader></PageLoader> : <Outlet></Outlet>
                     }
                 </main>
             </section>
