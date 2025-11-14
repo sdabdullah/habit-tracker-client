@@ -6,7 +6,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Typewriter } from 'react-simple-typewriter';
-import { Link } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 import HabitCard from '../component/HabitCard';
 import WhyBuildCard from '../component/WhyBuildCard';
 import { MdOutlineCalendarToday } from 'react-icons/md';
@@ -14,6 +14,7 @@ import { LuTarget } from 'react-icons/lu';
 import { TiFlashOutline } from 'react-icons/ti';
 
 const Home = () => {
+    const recenHabitsData = useLoaderData();
     return (
         <div>
             <div className="relative overflow-hidden">
@@ -130,9 +131,9 @@ const Home = () => {
                     </div>
 
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4'>
-                        <HabitCard></HabitCard>
-                        <HabitCard></HabitCard>
-                        <HabitCard></HabitCard>
+                        {
+                            recenHabitsData.map(rc_habits => <HabitCard key={rc_habits._id} rc_habits={rc_habits}></HabitCard>)
+                        }
                     </div>
                 </div>
 

@@ -31,7 +31,7 @@ const Navbar = () => {
     return (
         <div className='container mx-auto'>
             <div className="navbar justify-between">
-                <div className="navbar-start">
+                <div className="navbar-center">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost text-[#7b3aec] lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
@@ -52,7 +52,7 @@ const Navbar = () => {
                     </Link>
 
                 </div>
-                <div className="navbar-end hidden lg:flex">
+                <div className=" hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navLinks}
                     </ul>
@@ -70,7 +70,7 @@ const Navbar = () => {
                                     </div>
                                 </div>
 
-                                <ul tabIndex="-1" className="border menu menu-sm dropdown-content bg-base-100 shadow-sm rounded-box mt-3 w-52 p-2">
+                                <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 shadow-md rounded-box mt-3 w-52 p-2">
 
                                     <div className='space-y-2 text-[16px] px-3'>
 

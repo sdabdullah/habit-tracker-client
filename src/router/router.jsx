@@ -10,7 +10,7 @@ import RegisterPage from "../Pages/RegisterPage";
 import PrivateRouter from "./PrivateRouter";
 import HabitDetails from "../Pages/HabitDetails";
 import UpdateHabit from "../Pages/UpdateHabit";
-// import PageLoader from "../Pages/PageLoader";
+import PageLoader from "../Pages/PageLoader";
 
 
 const router = createBrowserRouter([
@@ -19,13 +19,15 @@ const router = createBrowserRouter([
         element: <RootLayout></RootLayout>,
         errorElement: <NotFound></NotFound>,
 
-        // hydrateFallbackElement: <PageLoader></PageLoader>,
+        
 
         children: [
             {
                 index: true,
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('http://localhost:3000/recent-habits'),
+                hydrateFallbackElement: <PageLoader></PageLoader>
             },
             {
                 path: '/add-habit',

@@ -10,6 +10,44 @@ const AddHabit = () => {
     const [category, setCategory] = useState('');
     const [reminderTime, setReminderTime] = useState('');
 
+    
+    const handleAddNewHabit = (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+        const habitTitle = form.habitTitle.value;
+        const description = form.description.value;
+        const category = form.category.value;
+        const time = form.time.value;
+        const email = form.email.value;
+        const name = form.name.value;
+
+        console.log({habitTitle, description, category, time, email, name });
+        
+        const newHabit = {
+            title: habitTitle,
+            description: description,
+            category: category,
+            reminder_time: time,
+            email: email,
+            name: name,
+            created_at: time
+        }
+
+        fetch('http://localhost:3000/habits', {
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(newHabit)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log('After added Habit', data);
+            
+        })
+    }
+
     return (
         <div className='bg-[#f6f9fb]'>
             <div className='flex justify-center items-center px-10 py-15'>
@@ -24,13 +62,15 @@ const AddHabit = () => {
                             <p className='text-[16px] text-gray-500 my-2'>Start building a better you, one habit at a time</p>
                         </div>
 
-                        <form>
+                        <form onSubmit={handleAddNewHabit}>
                             <fieldset className="fieldset space-y-3 mt-2">
 
                                 <div>
                                     <label className="label text-sm text-black">Habit Title</label>
-                                    <input value={title}
-                                        onChange={(e) => setTitle(e.target.value)} type="text" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='habitTitle' placeholder="e.g., Morning walk" />
+                                    <input
+                                        value={title}
+                                        onChange={(e) => setTitle(e.target.value)} type="text" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='habitTitle' placeholder="e.g., Morning walk"
+                                    />
                                 </div>
 
                                 <div>
@@ -44,31 +84,38 @@ const AddHabit = () => {
                                 <div>
                                     <label className="label text-sm text-black">Category</label>
 
-                                    <select value={category} onValueChange={setCategory} defaultValue="Select a category" className="select w-full border-gray-300 mt-2 placeholder: text-gray-800" name='category'>
+                                    <select
+                                        value={category} onChange={setCategory}  className="select w-full border-gray-300 mt-2 placeholder: text-gray-800" name='category'>
 
                                         <option>Select a category</option>
-                                        <option>Chrome</option>
-                                        <option>FireFox</option>
-                                        <option>Safari</option>
+                                        <option>Morning</option>
+                                        <option>Work</option>
+                                        <option>Fitness</option>
+                                        <option>Evening</option>
+                                        <option>Study</option>
                                     </select>
                                 </div>
 
                                 <div>
                                     <label className="label text-sm text-black">Reminder Time</label>
 
-                                    <input value={reminderTime} onChange={(e) => setReminderTime(e.target.value)} id="reminderTime" type="time" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='time' />
+                                    <input
+                                        value={reminderTime} onChange={(e) => setReminderTime(e.target.value)} id="reminderTime" type="time" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='time'
+                                    />
                                 </div>
 
                                 <div>
                                     <label className="label text-sm text-black">Your Email</label>
-                                    <input value={user?.email}
-                                        disabled type="text" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='photoURL' placeholder={user?.email} />
+                                    <input
+                                        readOnly type="email" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='email' defaultValue={user?.email}
+                                    />
                                 </div>
 
                                 <div>
                                     <label className="label text-sm text-black">Your Name</label>
-                                    <input value={user.name}
-                                        disabled type="password" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='password' placeholder={user?.displayName} />
+                                    <input
+                                        readOnly type="text" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='name' defaultValue={user?.displayName}
+                                    />
                                 </div>
 
                                 <button type="submit" className="btn text-white border-none rounded-lg mt-4 bg-[#7b3aec] border-0 text-sm">Create Habit</button>

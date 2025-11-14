@@ -41,7 +41,7 @@ const LoginPage = () => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode, errorMessage);
-                toast.error('Something is wrong in', errorCode, errorMessage)
+                toast.error('Incorrect login info', errorCode, errorMessage)
             });
     }
 
