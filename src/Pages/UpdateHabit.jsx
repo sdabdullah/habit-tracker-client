@@ -1,5 +1,6 @@
 import React, { use, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import { Link } from 'react-router';
 
 const UpdateHabit = () => {
 
@@ -9,6 +10,7 @@ const UpdateHabit = () => {
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
     const [reminderTime, setReminderTime] = useState('');
+    const [imageURL, setImageURL] = useState('');
 
     return (
         <div className='bg-[#f6f9fb]'>
@@ -60,6 +62,14 @@ const UpdateHabit = () => {
                                 </div>
 
                                 <div>
+                                    <label className="label text-sm text-black">Upload Image (Optional)</label>
+                                    <input
+                                        value={imageURL}
+                                        onChange={(e) => setImageURL(e.target.value)} type="url" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='habitTitle' placeholder="https://example.com/image.jpg"
+                                    />
+                                </div>
+
+                                <div>
                                     <label className="label text-sm text-black">Your Email</label>
                                     <input value={user?.email}
                                         disabled type="text" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='photoURL' placeholder={user?.email} />
@@ -71,7 +81,18 @@ const UpdateHabit = () => {
                                         disabled type="password" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='password' placeholder={user?.displayName} />
                                 </div>
 
-                                <button type="submit" className="btn text-white border-none rounded-lg mt-4 bg-[#7b3aec] border-0 text-sm">Create Habit</button>
+
+                                <div className='flex justify-between gap-5'>
+                                    <div className='w-full'>
+                                        <button type="submit" className="btn w-full text-white border-none rounded-lg mt-4 bg-[#7b3aec] border-0 text-sm">Update Habit</button>
+
+                                    </div>
+                                    <div className='w-full'>
+                                        <Link to='/my-habits'>
+                                            <button type="submit" className="btn w-full rounded-lg mt-4 bg-[#ffffff] border text-sm">Cancel</button>
+                                        </Link>
+                                    </div>
+                                </div>
                             </fieldset>
                         </form>
                     </div>

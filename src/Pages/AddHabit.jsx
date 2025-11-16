@@ -1,16 +1,22 @@
 import React, { use, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
+import Swal from 'sweetalert2';
+// import { format } from 'date-fns';
 
 const AddHabit = () => {
     const { user } = use(AuthContext);
+    const navigate = useNavigate()
+
+    // const [date, setDate] = useState()
+    // const ndate = format(new Date(), 'MMMM MM, yyyy')
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
     const [reminderTime, setReminderTime] = useState('');
+    const [imageURL, setImageURL] = useState('');
 
-    
     const handleAddNewHabit = (e) => {
         e.preventDefault();
 
@@ -22,8 +28,8 @@ const AddHabit = () => {
         const email = form.email.value;
         const name = form.name.value;
 
-        console.log({habitTitle, description, category, time, email, name });
-        
+        console.log({ habitTitle, description, category, time, email, name });
+
         const newHabit = {
             title: habitTitle,
             description: description,
@@ -31,21 +37,31 @@ const AddHabit = () => {
             reminder_time: time,
             email: email,
             name: name,
-            created_at: time
+            created_at: new Date(),
+            currentStreak: 12,
+            createdDate: new Date().toLocaleDateString("en-GB")
         }
 
         fetch('http://localhost:3000/habits', {
             method: 'POST',
             headers: {
-                'content-type' : 'application/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(newHabit)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log('After added Habit', data);
-            
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('After added Habit', data);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your habit has been added",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
+                navigate('/my-habits')
+            })
     }
 
     return (
@@ -85,7 +101,7 @@ const AddHabit = () => {
                                     <label className="label text-sm text-black">Category</label>
 
                                     <select
-                                        value={category} onChange={setCategory}  className="select w-full border-gray-300 mt-2 placeholder: text-gray-800" name='category'>
+                                        value={category.option} onChange={setCategory} className="select w-full border-gray-300 mt-2 placeholder: text-gray-800" name='category'>
 
                                         <option>Select a category</option>
                                         <option>Morning</option>
@@ -101,6 +117,14 @@ const AddHabit = () => {
 
                                     <input
                                         value={reminderTime} onChange={(e) => setReminderTime(e.target.value)} id="reminderTime" type="time" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='time'
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="label text-sm text-black">Upload Image (Optional)</label>
+                                    <input
+                                        value={imageURL}
+                                        onChange={(e) => setImageURL(e.target.value)} type="url" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='habitTitle' placeholder="https://example.com/image.jpg"
                                     />
                                 </div>
 

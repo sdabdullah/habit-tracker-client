@@ -23,8 +23,8 @@ const Navbar = () => {
 
     const navLinks = <>
         <NavLink to='/' className='font-semibold p-3 text-[17px]' ><li> Home </li></NavLink>
-        <NavLink to='/add-habit' className='p-3 text-[17px] font-semibold'><li>Add Habit</li></NavLink>
-        <NavLink to='/my-habit' className='p-3 text-[17px] font-semibold'><li>My Habits</li></NavLink>
+        <NavLink to='/add-habits' className='p-3 text-[17px] font-semibold'><li>Add Habit</li></NavLink>
+        <NavLink to='/my-habits' className='p-3 text-[17px] font-semibold'><li>My Habits</li></NavLink>
         <NavLink to='/browse-public-habits' className='p-3 text-[17px] font-semibold'><li>Browse Public Habits</li></NavLink>
     </>
 
@@ -70,9 +70,9 @@ const Navbar = () => {
                                     </div>
                                 </div>
 
-                                <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 shadow-md rounded-box mt-3 w-52 p-2">
+                                <ul tabIndex="-1" className="border border-gray-300 menu menu-sm dropdown-content bg-base-100 shadow-md rounded-box mt-3 w-75 p-2">
 
-                                    <div className='space-y-2 text-[16px] px-3'>
+                                    <div className='space-y-2 text-lg font-semibold px-3'>
 
                                         <p>{user?.displayName}</p>
                                         <p>{user?.email}</p>

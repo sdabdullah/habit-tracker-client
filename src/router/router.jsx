@@ -30,13 +30,13 @@ const router = createBrowserRouter([
                 hydrateFallbackElement: <PageLoader></PageLoader>
             },
             {
-                path: '/add-habit',
+                path: '/add-habits',
                 element: <PrivateRouter>
                     <AddHabit></AddHabit>
                 </PrivateRouter>
             },
             {
-                path: '/my-habit',
+                path: '/my-habits',
                 element: <PrivateRouter>
                     <MyHabits></MyHabits>
                 </PrivateRouter>
@@ -49,7 +49,9 @@ const router = createBrowserRouter([
             },
             {
                 path: '/browse-public-habits',
-                element: <BrowsePublicHabits></BrowsePublicHabits>
+                element: <BrowsePublicHabits></BrowsePublicHabits>,
+                loader: () => fetch('http://localhost:3000/public-habits'),
+                hydrateFallbackElement: <PageLoader></PageLoader>
             },
             {
                 path: '/habit-details',
