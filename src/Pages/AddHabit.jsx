@@ -2,14 +2,10 @@ import React, { use, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 import Swal from 'sweetalert2';
-// import { format } from 'date-fns';
 
 const AddHabit = () => {
     const { user } = use(AuthContext);
     const navigate = useNavigate()
-
-    // const [date, setDate] = useState()
-    // const ndate = format(new Date(), 'MMMM MM, yyyy')
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -21,25 +17,25 @@ const AddHabit = () => {
         e.preventDefault();
 
         const form = e.target;
-        const habitTitle = form.habitTitle.value;
+        const title = form.title.value;
         const description = form.description.value;
         const category = form.category.value;
         const time = form.time.value;
         const email = form.email.value;
         const name = form.name.value;
 
-        console.log({ habitTitle, description, category, time, email, name });
+        console.log({ title, description, category, time, email, name });
 
         const newHabit = {
-            title: habitTitle,
+            title: title,
             description: description,
             category: category,
             reminder_time: time,
             email: email,
             name: name,
             created_at: new Date(),
-            currentStreak: 12,
-            createdDate: new Date().toLocaleDateString("en-GB")
+            currentStreak: '12 days',
+            createdDate:  new Date().toLocaleDateString("en-GB")
         }
 
         fetch('http://localhost:3000/habits', {
@@ -52,13 +48,21 @@ const AddHabit = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('After added Habit', data);
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Your habit has been added",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
+                if (data.insertedId) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Your habit has been added",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!, Please check your internet connection",
+                    });
+                }
 
                 navigate('/my-habits')
             })
@@ -85,7 +89,7 @@ const AddHabit = () => {
                                     <label className="label text-sm text-black">Habit Title</label>
                                     <input
                                         value={title}
-                                        onChange={(e) => setTitle(e.target.value)} type="text" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='habitTitle' placeholder="e.g., Morning walk"
+                                        onChange={(e) => setTitle(e.target.value)} type="text" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='title' placeholder="e.g., Morning walk"
                                     />
                                 </div>
 
@@ -101,7 +105,7 @@ const AddHabit = () => {
                                     <label className="label text-sm text-black">Category</label>
 
                                     <select
-                                        value={category.option} onChange={setCategory} className="select w-full border-gray-300 mt-2 placeholder: text-gray-800" name='category'>
+                                        value={category.option} onChange={setCategory} className="select w-full border-gray-300 mt-2" name='category'>
 
                                         <option>Select a category</option>
                                         <option>Morning</option>
