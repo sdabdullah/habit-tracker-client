@@ -8,9 +8,10 @@ import BrowsePublicHabits from "../Pages/BrowsePublicHabits";
 import LoginPage from "../Pages/LoginPage";
 import RegisterPage from "../Pages/RegisterPage";
 import PrivateRouter from "./PrivateRouter";
-import HabitDetails from "../Pages/HabitDetails";
 import UpdateHabit from "../Pages/UpdateHabit";
 import PageLoader from "../Pages/PageLoader";
+import PublicHabitDetails from "../Pages/PublicHabitDetails";
+import HabitDetails from "../Pages/HabitDetails";
 
 
 const router = createBrowserRouter([
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
         element: <RootLayout></RootLayout>,
         errorElement: <NotFound></NotFound>,
 
-        
+
 
         children: [
             {
@@ -52,6 +53,13 @@ const router = createBrowserRouter([
                 element: <BrowsePublicHabits></BrowsePublicHabits>,
                 loader: () => fetch('http://localhost:3000/public-habits'),
                 hydrateFallbackElement: <PageLoader></PageLoader>
+            },
+            {
+                path: '/publicHabit-details/:id',
+                element: (<PrivateRouter>
+                    <PublicHabitDetails></PublicHabitDetails>
+                </PrivateRouter>),
+                loader: ({ params }) => fetch(`http://localhost:3000/public-habits/${params.id}`)
             },
             {
                 path: '/habit-details',

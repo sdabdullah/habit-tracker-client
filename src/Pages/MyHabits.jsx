@@ -63,10 +63,10 @@ const MyHabits = () => {
         <div className='bg-[#f7f9fc] py-15'>
             <div className='w-11/12 mx-auto'>
                 <div className='mb-10'>
-                    <h2 className='text-4xl text-center md:text-5xl font-bold'>My Habits{habits.length}</h2>
+                    <h2 className='text-3xl md:text-4xl font-bold px-4'>My Habits {habits.length}</h2>
                 </div>
 
-                <div className="overflow-x-auto rounded-box  bg-base-100">
+                <div className="overflow-x-auto rounded-box bg-base-100 rounded-lg border border-gray-300 shadow-sm">
 
                     <table className="table">
                         {/* head */}
@@ -80,7 +80,7 @@ const MyHabits = () => {
                                 <th className='px-6 py-4 text-center text-sm font-semibold text-slate-900'>Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className=''>
                             {/* row 1 */}
                             {
                                 habits.map((habit, index) =>

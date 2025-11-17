@@ -4,16 +4,18 @@ import PublicHabitcard from '../component/publicHabitcard';
 
 const BrowsePublicHabits = () => {
     const publicHabitData = useLoaderData()
-    const [habits, setHabits] = useState([]);
-    const [filteredHabits, setFilteredHabits] = useState([]);
+    console.log(publicHabitData);
+    
+    // const [habits, setHabits] = useState([]);
+    // const [filteredHabits, setFilteredHabits] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
-    const [categoryFilter, setCategoryFilter] = useState('all');
+    // const [categoryFilter, setCategoryFilter] = useState('all');
     return (
         <div>
             <div className='py-15 bg-[#f5f8fa]'>
                 <div className='w-11/12 mx-auto'>
                     <div className='mb-10'>
-                        <h2 className='text-4xl text-center md:text-5xl font-bold'>Browse Public Habits</h2>
+                        <h2 className='text-3xl md:text-4xl font-bold px-4'>Browse Public Habits</h2>
                     </div>
                     <div className="flex flex-col md:flex-row gap-4 mb-8 px-4">
                         <div className="relative flex-1">
@@ -43,7 +45,7 @@ const BrowsePublicHabits = () => {
 
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4'>
                         {
-                            publicHabitData.map(pub_habits => <PublicHabitcard key={pub_habits._id} pub_habits={pub_habits}></PublicHabitcard>)
+                            publicHabitData.map(pubHabits => <PublicHabitcard key={pubHabits._id} pubHabits={pubHabits}></PublicHabitcard>)
                         }
                     </div>
                 </div>

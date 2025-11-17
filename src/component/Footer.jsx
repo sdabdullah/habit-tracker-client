@@ -4,7 +4,6 @@ import { FaInstagram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { FiFacebook, FiPhone } from 'react-icons/fi';
 import { LuLinkedin } from 'react-icons/lu';
-import { Link } from 'react-router';
 
 const Footer = () => {
     return (
@@ -17,7 +16,7 @@ const Footer = () => {
                                 <div className="w-10 h-10 bg-linear-to-br from-violet-600 to-indigo-600 rounded-lg flex items-center justify-center">
                                     <span className="text-white font-bold text-xl">H</span>
                                 </div>
-                                <span className="text-2xl font-bold">Habit Tracker</span>
+                                <span className="text-xl font-bold">Habit Tracker</span>
                             </div>
                             <p className="text-slate-400">
                                 Build better habits, one day at a time. Track your progress and achieve your goals.

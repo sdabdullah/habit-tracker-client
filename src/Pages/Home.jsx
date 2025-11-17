@@ -38,7 +38,7 @@ const Home = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.8 }}
                                 >
-                                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+                                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
                                         Build{' '}
                                         <span className="text-yellow-300">
                                             <Typewriter
@@ -76,7 +76,7 @@ const Home = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.8 }}
                                 >
-                                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+                                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                                         Track Your Progress
                                     </h2>
                                     <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
@@ -103,7 +103,7 @@ const Home = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.8 }}
                                 >
-                                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+                                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                                         Join Our Community
                                     </h2>
                                     <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
@@ -126,8 +126,8 @@ const Home = () => {
             <div className='py-20 bg-white'>
                 <div className='w-11/12 mx-auto space-y-15'>
                     <div className='text-center space-y-4'>
-                        <h2 className='text-4xl md:text-5xl font-bold'>Featured Habits</h2>
-                        <p className='text-xl text-slate-600'>Discover the newest habits from our community</p>
+                        <h2 className='text-3xl md:text-4xl font-bold'>Featured Habits</h2>
+                        <p className='text-lg text-slate-600'>Discover the newest habits from our community</p>
                     </div>
 
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4'>
@@ -144,8 +144,8 @@ const Home = () => {
             <div className='py-20  bg-[#f3f3ff]'>
                 <div className='w-11/12 mx-auto space-y-15'>
                     <div className='text-center space-y-4'>
-                        <h2 className='text-4xl md:text-5xl font-bold'>Why Build Habits?</h2>
-                        <p className='text-xl text-slate-600'>Discover the transformative power of consistent daily practices</p>
+                        <h2 className='text-3xl md:text-4xl font-bold'>Why Build Habits?</h2>
+                        <p className='text-lg text-slate-600'>Discover the transformative power of consistent daily practices</p>
                     </div>
 
                     <div className=''>
@@ -164,8 +164,8 @@ const Home = () => {
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
                         <div className='space-y-4'>
                             <div className='space-y-4'>
-                                <h2 className='text-4xl md:text-5xl font-bold'>Track Everything That Matters</h2>
-                                <p className='text-xl text-slate-600 mb-8'>From morning routines to evening reflections, HabitFlow helps you stay accountable and motivated every step of the way.</p>
+                                <h2 className='text-3xl md:text-4xl font-bold'>Track Everything That Matters</h2>
+                                <p className='text-lg text-slate-600 mb-8'>From morning routines to evening reflections, HabitFlow helps you stay accountable and motivated every step of the way.</p>
                             </div>
 
                             <div className='space-y-4'>
@@ -215,8 +215,8 @@ const Home = () => {
             {/* -------------------------------------------------------------- */}
             <div className='py-20 px-4 bg-linear-to-r from-violet-600 to-indigo-600'>
                 <div className='max-w-4xl mx-auto text-center'>
-                    <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>Ready to Transform Your Life?</h2>
-                    <p className='text-xl text-white/90 mb-8'>Start building better habits today. It's free and takes less than a minute.</p>
+                    <h2 className='text-3xl md:text-4xl font-bold text-white mb-6'>Ready to Transform Your Life?</h2>
+                    <p className='text-lg text-white/90 mb-8'>Start building better habits today. It's free and takes less than a minute.</p>
 
                     <Link to='/register'>
                         <button className=' cursor-pointer font-medium rounded-md bg-white text-violet-600 hover:bg-slate-100 text-lg px-8 py-3'>Create Your Free Account</button>
