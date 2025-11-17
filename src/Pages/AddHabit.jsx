@@ -36,7 +36,7 @@ const AddHabit = () => {
 
         }
 
-        fetch('http://localhost:3000/habits', {
+        fetch('https://habit-tracker-api-sever.vercel.app/habits', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

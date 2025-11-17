@@ -27,7 +27,7 @@ const router = createBrowserRouter([
                 index: true,
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:3000/recent-habits'),
+                loader: () => fetch('https://habit-tracker-api-sever.vercel.app/recent-habits'),
                 hydrateFallbackElement: <PageLoader></PageLoader>
             },
             {
@@ -49,12 +49,12 @@ const router = createBrowserRouter([
                         <UpdateHabit></UpdateHabit>
                     </PrivateRouter>
                 ),
-                loader: ({ params }) => fetch(`http://localhost:3000/habits/${params.id}`)
+                loader: ({ params }) => fetch(`https://habit-tracker-api-sever.vercel.app/habits/${params.id}`)
             },
             {
                 path: '/browse-public-habits',
                 element: <BrowsePublicHabits></BrowsePublicHabits>,
-                loader: () => fetch('http://localhost:3000/public-habits')
+                loader: () => fetch('https://habit-tracker-api-sever.vercel.app/public-habits')
             },
             {
                 path: '/publicHabit-details/:id',
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
                         <PublicHabitDetails></PublicHabitDetails>
                     </PrivateRouter>
                 ),
-                loader: ({ params }) => fetch(`http://localhost:3000/public-habits/${params.id}`)
+                loader: ({ params }) => fetch(`https://habit-tracker-api-sever.vercel.app/public-habits/${params.id}`)
             },
             {
                 path: '/habit-details/:id',
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
                         <HabitDetails></HabitDetails>
                     </PrivateRouter>
                 ),
-                loader: ({ params }) => fetch(`http://localhost:3000/recent-habits/${params.id}`)
+                loader: ({ params }) => fetch(`https://habit-tracker-api-sever.vercel.app/recent-habits/${params.id}`)
             },
             {
                 path: '/login',

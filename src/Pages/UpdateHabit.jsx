@@ -32,7 +32,7 @@ const UpdateHabit = () => {
             imageURL: imageURL,
         }
 
-        fetch(`http://localhost:3000/habits/${dataUpdate._id}`, {
+        fetch(`https://habit-tracker-api-sever.vercel.app/habits/${dataUpdate._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

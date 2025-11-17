@@ -13,7 +13,7 @@ const MyHabits = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/habits?email=${user.email}`)
+            fetch(`https://habit-tracker-api-sever.vercel.app/habits?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setHabits(data)
@@ -34,7 +34,7 @@ const MyHabits = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/habits/${_id}`, {
+                fetch(`https://habit-tracker-api-sever.vercel.app/habits/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

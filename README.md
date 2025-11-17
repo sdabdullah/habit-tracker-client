@@ -1,16 +1,39 @@
 # React + Vite
+# 📝 Habit Tracker – Project Description
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Habit Tracker is a full-stack web application designed to help users build positive routines and track their daily progress. The project is built using React JS, Node.js, Express JS, MongoDB, Tailwind CSS, and DaisyUI, delivering a fast, responsive, and visually clean experience.
 
-Currently, two official plugins are available:
+# 🔗 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+https://habit-tracker-6244c.web.app/
 
-## React Compiler
+# 🎯 Purpose
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The goal of this application is to make habit building simple and motivating. Users can create habits, monitor their streaks, mark completion for the day, and visualize their progress — all in an intuitive, user-friendly interface.
 
-## Expanding the ESLint configuration
+# ✨ Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+⚫ Add, edit, and delete habits
+⚫ Mark habits as completed with same-day duplicate prevention
+⚫ Automatic streak & completion history tracking
+⚫ User-specific habit management
+⚫ Responsive UI optimized for all devices
+⚫ Clean and modern design powered by Tailwind CSS + DaisyUI
+⚫ Fast API and database operations using Express + MongoDB
+⚫ Deployed with Firebase Hosting
+
+
+# 🛠️ Tech Stack
+Frontend:
+React JS
+Tailwind CSS
+DaisyUI
+
+# Backend:
+Node.js
+Express.js
+Database:
+MongoDB
+
+# Hosting:
+Firebase

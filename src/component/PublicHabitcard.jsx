@@ -12,7 +12,7 @@ const PublicHabitcard = ({ pubHabits }) => {
                 <p className=' text-slate-700'>{pubHabits?.description}</p>
 
                 <div className='flex justify-between'>
-                    <p className='text-sm text-slate-500'>Createtor: {pubHabits?.name}</p>
+                    <p className='text-sm text-slate-500'>Createtor: {pubHabits?.creator_info}</p>
                     
                         <Link to={`/publicHabit-details/${pubHabits?._id}`} className="bg-[#7b3aec] text-white rounded-md px-3 py-1 cursor-pointer">View Details</Link>
                     
