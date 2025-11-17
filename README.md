@@ -1,4 +1,3 @@
-# React + Vite
 # 📝 Habit Tracker – Project Description
 
 Habit Tracker is a full-stack web application designed to help users build positive routines and track their daily progress. The project is built using React JS, Node.js, Express JS, MongoDB, Tailwind CSS, and DaisyUI, delivering a fast, responsive, and visually clean experience.
