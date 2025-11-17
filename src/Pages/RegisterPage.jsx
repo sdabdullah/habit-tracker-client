@@ -21,7 +21,7 @@ const RegisterPage = () => {
         const photoURL = form.photoURL.value;
         const password = form.password.value;
 
-        console.log({ name, email, photoURL, password });
+        // console.log({ name, email, photoURL, password });
 
         const checkPasswordValidation = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
 
@@ -35,7 +35,7 @@ const RegisterPage = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 updateUser({ displayName: name, photoURL: photoURL })
                     .then(() => {
                         setUser({ ...user, displayName: name, photoURL: photoURL })
@@ -43,14 +43,14 @@ const RegisterPage = () => {
                         toast.success('Regitration Success')
                     })
                     .catch((error) => {
-                        console.log(error);
+                        // console.log(error);
                         toast.error('Something is wrong in', error)
                     })
             })
             .catch(error => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log(errorCode, errorMessage);
+                // console.log(errorCode, errorMessage);
                 toast.error('Something is wrong in', errorCode, errorMessage)
             })
     }
@@ -58,10 +58,12 @@ const RegisterPage = () => {
     const handleRegisterWithGoogle = () => {
         signInWithGoogle()
             .then(result => {
-                console.log(result.user);
+                toast.success('Login Success')
+                // console.log(result.user);
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
+                toast.error('Incorrect login info', error)
             })
     }
 

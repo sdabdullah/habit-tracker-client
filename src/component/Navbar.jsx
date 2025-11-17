@@ -16,16 +16,18 @@ const Navbar = () => {
                 navigate('/')
             })
             .catch((error) => {
-                console.log(error);
+                // console.log(error);
                 toast.error('Somthing is wrong')
             })
     }
 
     const navLinks = <>
-        <NavLink to='/' className='font-semibold p-3 text-[17px]' ><li> Home </li></NavLink>
-        <NavLink to='/add-habits' className='p-3 text-[17px] font-semibold'><li>Add Habit</li></NavLink>
-        <NavLink to='/my-habits' className='p-3 text-[17px] font-semibold'><li>My Habits</li></NavLink>
-        <NavLink to='/browse-public-habits' className='p-3 text-[17px] font-semibold'><li>Browse Public Habits</li></NavLink>
+        <div className='flex gap-3'>
+            <NavLink to='/' className='font-semibold py-1 px-3 text-[17px] border border-violet-700 rounded-full' ><li> Home </li></NavLink>
+            <NavLink to='/add-habits' className='font-semibold py-1 px-3 text-[17px] border border-violet-700 rounded-full'><li>Add Habit</li></NavLink>
+            <NavLink to='/my-habits' className='font-semibold py-1 px-3 text-[17px] border border-violet-700 rounded-full'><li>My Habits</li></NavLink>
+            <NavLink to='/browse-public-habits' className='font-semibold py-1 px-3 text-[17px] border border-violet-700 rounded-full'><li>Browse Public Habits</li></NavLink>
+        </div>
     </>
 
     return (

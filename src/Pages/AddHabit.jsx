@@ -1,17 +1,10 @@
-import React, { use, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import React, { use } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import Swal from 'sweetalert2';
 
 const AddHabit = () => {
     const { user } = use(AuthContext);
-    const navigate = useNavigate()
-
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [category, setCategory] = useState('');
-    const [reminderTime, setReminderTime] = useState('');
-    const [imageURL, setImageURL] = useState('');
+    // const navigate = useNavigate()
 
     const handleAddNewHabit = (e) => {
         e.preventDefault();
@@ -21,10 +14,12 @@ const AddHabit = () => {
         const description = form.description.value;
         const category = form.category.value;
         const time = form.time.value;
+        const imageURL = form.imageURL.value;
         const email = form.email.value;
         const name = form.name.value;
+        form.reset();
 
-        console.log({ habitTitle, description, category, time, email, name });
+        // console.log({ habitTitle, description, category, time, email, name });
 
         const addNewHabit = {
             title: habitTitle,
@@ -50,7 +45,7 @@ const AddHabit = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('After added Habit', data);
+                // console.log('After added Habit', data);
                 if (data.insertedId) {
                     Swal.fire({
                         position: "center",
@@ -67,7 +62,7 @@ const AddHabit = () => {
                     });
                 }
 
-                navigate('/my-habits')
+                // navigate('/my-habits')
             })
     }
 
@@ -91,17 +86,14 @@ const AddHabit = () => {
                                 <div>
                                     <label className="label text-sm text-black">Habit Title</label>
                                     <input required
-                                        value={title}
-                                        onChange={(e) => setTitle(e.target.value)} type="text" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='habitTitle' placeholder="e.g., Morning walk"
+                                        type="text" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='habitTitle' placeholder="e.g., Morning walk"
                                     />
                                 </div>
 
                                 <div>
                                     <label className="label text-sm text-black">Description </label>
 
-                                    <textarea required
-                                        value={description}
-                                        onChange={(e) => setDescription(e.target.value)} className="textarea h-24 w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='description' placeholder="Describe your habit and why it's important to you...">
+                                    <textarea required className="textarea h-24 w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='description' placeholder="Describe your habit and why it's important to you...">
                                     </textarea>
                                 </div>
 
@@ -109,7 +101,7 @@ const AddHabit = () => {
                                     <label className="label text-sm text-black">Category</label>
 
                                     <select required defaultValue="Select a category"
-                                        value={category.option} onChange={setCategory} className="select w-full border-gray-300 mt-2" name='category'>
+                                        className="select w-full border-gray-300 mt-2" name='category'>
 
                                         <option disabled={true}>Select a category</option>
                                         <option>Morning</option>
@@ -124,15 +116,14 @@ const AddHabit = () => {
                                     <label className="label text-sm text-black">Reminder Time</label>
 
                                     <input required
-                                        value={reminderTime} onChange={(e) => setReminderTime(e.target.value)} id="reminderTime" type="time" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='time'
+                                        id="reminderTime" type="time" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='time'
                                     />
                                 </div>
 
                                 <div>
                                     <label className="label text-sm text-black">Upload Image (Optional)</label>
                                     <input
-                                        value={imageURL}
-                                        onChange={(e) => setImageURL(e.target.value)} type="url" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='imageURL' placeholder="https://example.com/image.jpg"
+                                        type="url" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='imageURL' placeholder="https://example.com/image.jpg"
                                     />
                                 </div>
 

@@ -14,10 +14,10 @@ const LoginPage = () => {
     const handleSignInWithGoogle = () => {
         signInWithGoogle()
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             })
     }
 
@@ -28,19 +28,19 @@ const LoginPage = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log({ email, password });
+        // console.log({ email, password });
 
         signInUser(email, password)
             .then((result) => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 toast.success('Login Success')
                 navigate(`${location.state ? location.state : '/'}`)
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log(errorCode, errorMessage);
+                // console.log(errorCode, errorMessage);
                 toast.error('Incorrect login info', errorCode, errorMessage)
             });
     }

@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLoaderData } from 'react-router';
 import PublicHabitcard from '../component/publicHabitcard';
 
 const BrowsePublicHabits = () => {
     const publicHabitData = useLoaderData()
-    // console.log(publicHabitData);
-    
-    // const [habits, setHabits] = useState([]);
-    // const [filteredHabits, setFilteredHabits] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('');
-    // const [categoryFilter, setCategoryFilter] = useState('all');
+   
+
+
+    // const handleSearch = (e) => {
+
+    // }
+
     return (
         <div>
             <div className='py-15 bg-[#f5f8fa]'>
@@ -21,10 +22,7 @@ const BrowsePublicHabits = () => {
                         <div className="relative flex-1">
                             <div>
                                 <input
-                                    placeholder="Search habits..."
-                                    value={searchTerm}
-                                    onChange={(e) => setSearchTerm(e.target.value)}
-                                    className="flex h-10 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm pl-10 focus-visible:outline-none focus-visible:ring-2"
+                                    placeholder="Search habits..." className="flex h-10 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm pl-10 focus-visible:outline-none focus-visible:ring-2"
                                 />
                             </div>
                         </div>
