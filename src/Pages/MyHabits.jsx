@@ -93,19 +93,22 @@ const MyHabits = () => {
 
                                         <td className='px-6 py-6'>
                                             <div className='flex items-center justify-center space-x-2'>
-
+                                                
+                                                {/* -------------Habit Complete Button------------- */}
                                                 <button
                                                     className='inline-flex items-center justify-center text-sm font-medium gap-1 border border-gray-300 h-9 rounded-md px-3 cursor-pointer'><BsCheck2Circle /> Complete
                                                 </button>
 
+                                                {/* -------------Update Habit Button------------- */}
                                                 <div>
-                                                    <Link to='/update-habit'>
+                                                    <Link to={`/update-habit/${habit._id}`}>
                                                         <button
                                                             className='inline-flex items-center justify-center text-sm font-medium gap-1 border border-gray-300 h-9 rounded-md px-3 cursor-pointer'><FiEdit />
                                                         </button>
                                                     </Link>
                                                 </div>
 
+                                                {/* -------------Habit Delete Button------------- */}
                                                 <button onClick={() => deleteSingleHabitFromTable(habit._id)}
                                                     className='inline-flex items-center justify-center text-sm font-medium gap-1 border border-gray-300 h-9 rounded-md px-3 cursor-pointer'><RiDeleteBinLine />
                                                 </button>

@@ -4,7 +4,7 @@ import PublicHabitcard from '../component/publicHabitcard';
 
 const BrowsePublicHabits = () => {
     const publicHabitData = useLoaderData()
-    console.log(publicHabitData);
+    // console.log(publicHabitData);
     
     // const [habits, setHabits] = useState([]);
     // const [filteredHabits, setFilteredHabits] = useState([]);

@@ -16,9 +16,11 @@ const HabitCard = ({ rc_habits }) => {
 
                 <div className='flex justify-between'>
                     <p className='text-sm text-slate-500'>{user?.displayName}</p>
-                    <Link to='/habit-details'>
+
+                    <Link to={`/habit-details/${rc_habits?._id}`}>
                         <button className="bg-[#7b3aec] text-white rounded-md px-3 py-1 cursor-pointer">View Details</button>
                     </Link>
+
                 </div>
             </div>
         </div>

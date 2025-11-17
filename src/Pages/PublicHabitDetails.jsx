@@ -4,7 +4,6 @@ import { useLoaderData } from 'react-router';
 
 const PublicHabitDetails = () => {
     const publicHabit = useLoaderData();
-    console.log(publicHabit);
     
 
     return (
@@ -17,7 +16,7 @@ const PublicHabitDetails = () => {
                     <div className='flex flex-col space-y-1.5 p-6'>
                         <div className='flex items-start justify-between'>
                             <div className=''>
-                                <h2 className='font-semibold tracking-tight text-3xl mb-2'>{publicHabit?.title}</h2>
+                                <h2 className='font-semibold tracking-tight text-2xl mb-2'>{publicHabit?.title}</h2>
                                 <div className='flex items-center space-x-4 text-sm text-slate-600'>
                                     <h2 className='inline-flex items-center px-3 py-1 rounded-full bg-violet-100 text-violet-800 font-medium'>{publicHabit?.category}</h2>
                                     <span className='flex items-center'>Createtor: {publicHabit?.name}</span>
@@ -35,7 +34,7 @@ const PublicHabitDetails = () => {
                         <p className='text-slate-600'>{publicHabit?.description}</p>
 
                         <div className='flex justify-center'>
-                            <button className='text-white items-center justify-center text-sm font-medium  h-11 rounded-md bg-violet-600 px-8 w-full md:w-auto'>Mark as Complete Today</button>
+                            <button className='text-white cursor-pointer items-center justify-center text-sm font-medium  h-11 rounded-md bg-violet-600 px-8 w-full md:w-auto'>Mark as Complete Today</button>
                         </div>
                     </div>
                 </div>

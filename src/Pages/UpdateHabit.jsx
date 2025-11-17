@@ -1,16 +1,14 @@
-import React, { use, useState } from 'react';
+import React, { use } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { Link } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 
 const UpdateHabit = () => {
 
     const { user } = use(AuthContext);
 
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [category, setCategory] = useState('');
-    const [reminderTime, setReminderTime] = useState('');
-    const [imageURL, setImageURL] = useState('');
+    const updateHabitData = useLoaderData()
+    console.log(updateHabitData);
+
 
     return (
         <div className='bg-[#f6f9fb]'>
@@ -31,54 +29,60 @@ const UpdateHabit = () => {
 
                                 <div>
                                     <label className="label text-sm text-black">Habit Title</label>
-                                    <input value={title}
-                                        onChange={(e) => setTitle(e.target.value)} type="text" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='habitTitle' placeholder="e.g., Morning walk" />
+                                    <input defaultValue={updateHabitData?.title}
+                                        type="text" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='habitTitle' placeholder="e.g., Morning walk" />
                                 </div>
 
                                 <div>
                                     <label className="label text-sm text-black">Description </label>
 
-                                    <textarea value={description}
-                                        onChange={(e) => setDescription(e.target.value)} className="textarea h-24 w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='description' placeholder="Describe your habit and why it's important to you...">
+                                    <textarea defaultValue={updateHabitData?.description}
+                                        className="textarea h-24 w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='description' placeholder="Describe your habit and why it's important to you...">
                                     </textarea>
                                 </div>
 
                                 <div>
                                     <label className="label text-sm text-black">Category</label>
 
-                                    <select value={category} onValueChange={setCategory} defaultValue="Select a category" className="select w-full border-gray-300 mt-2 placeholder: text-gray-800" name='category'>
+                                    <select required defaultValue={updateHabitData?.category}
+                                        className="select w-full border-gray-300 mt-2" name='category'>
 
-                                        <option>Select a category</option>
-                                        <option>Chrome</option>
-                                        <option>FireFox</option>
-                                        <option>Safari</option>
+                                        <option disabled={true}>Select a category</option>
+                                        <option>Morning</option>
+                                        <option>Work</option>
+                                        <option>Fitness</option>
+                                        <option>Evening</option>
+                                        <option>Study</option>
                                     </select>
                                 </div>
 
                                 <div>
                                     <label className="label text-sm text-black">Reminder Time</label>
 
-                                    <input value={reminderTime} onChange={(e) => setReminderTime(e.target.value)} id="reminderTime" type="time" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='time' />
+                                    <input
+                                        defaultValue={updateHabitData?.reminder_time}
+                                        id="reminderTime" type="time" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='time' />
                                 </div>
 
                                 <div>
-                                    <label className="label text-sm text-black">Upload Image (Optional)</label>
+                                    <label className="label text-sm text-black">Re-upload Image (Optional)</label>
                                     <input
-                                        value={imageURL}
-                                        onChange={(e) => setImageURL(e.target.value)} type="url" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='habitTitle' placeholder="https://example.com/image.jpg"
+                                        defaultValue={updateHabitData?.imageURL}
+                                        type="url" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='habitTitle' placeholder="https://example.com/image.jpg"
                                     />
                                 </div>
 
                                 <div>
                                     <label className="label text-sm text-black">Your Email</label>
-                                    <input value={user?.email}
-                                        disabled type="text" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='photoURL' placeholder={user?.email} />
+                                    <input readOnly value={user?.email}
+                                        type="text" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='photoURL' placeholder={user?.email} />
                                 </div>
 
                                 <div>
                                     <label className="label text-sm text-black">Your Name</label>
-                                    <input value={user.name}
-                                        disabled type="password" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='password' placeholder={user?.displayName} />
+                                    <input
+                                        readOnly type="text" className="input w-full border-gray-300 mt-2 placeholder:text-gray-800 text-black" name='name' defaultValue={user?.displayName}
+                                    />
                                 </div>
 
 

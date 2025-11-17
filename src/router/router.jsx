@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         element: <RootLayout></RootLayout>,
         errorElement: <NotFound></NotFound>,
 
-
+        hydrateFallbackElement: <PageLoader></PageLoader>,
 
         children: [
             {
@@ -43,29 +43,36 @@ const router = createBrowserRouter([
                 </PrivateRouter>
             },
             {
-                path: '/update-habit',
-                element: <PrivateRouter>
-                    <UpdateHabit></UpdateHabit>
-                </PrivateRouter>
+                path: '/update-habit/:id',
+                element: (
+                    <PrivateRouter>
+                        <UpdateHabit></UpdateHabit>
+                    </PrivateRouter>
+                ),
+                loader: ({ params }) => fetch(`http://localhost:3000/habits/${params.id}`)
             },
             {
                 path: '/browse-public-habits',
                 element: <BrowsePublicHabits></BrowsePublicHabits>,
-                loader: () => fetch('http://localhost:3000/public-habits'),
-                hydrateFallbackElement: <PageLoader></PageLoader>
+                loader: () => fetch('http://localhost:3000/public-habits')
             },
             {
                 path: '/publicHabit-details/:id',
-                element: (<PrivateRouter>
-                    <PublicHabitDetails></PublicHabitDetails>
-                </PrivateRouter>),
+                element: (
+                    <PrivateRouter>
+                        <PublicHabitDetails></PublicHabitDetails>
+                    </PrivateRouter>
+                ),
                 loader: ({ params }) => fetch(`http://localhost:3000/public-habits/${params.id}`)
             },
             {
-                path: '/habit-details',
-                element: <PrivateRouter>
-                    <HabitDetails></HabitDetails>
-                </PrivateRouter>
+                path: '/habit-details/:id',
+                element: (
+                    <PrivateRouter>
+                        <HabitDetails></HabitDetails>
+                    </PrivateRouter>
+                ),
+                loader: ({ params }) => fetch(`http://localhost:3000/recent-habits/${params.id}`)
             },
             {
                 path: '/login',
